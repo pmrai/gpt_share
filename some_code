@@ -1,0 +1,75 @@
+# file: agent_with_dual_ollama.py
+
+import requests
+from smolagents import CodeAgent, LiteLLMModel, tool
+
+@tool
+def add(a: int, b: int) -> int:
+    """
+    Add two integers.
+
+    Args:
+        a (int): First number.
+        b (int): Second number.
+
+    Returns:
+        int: Sum of the two numbers.
+    """
+    return a + b
+
+@tool
+def greet(name: str) -> str:
+    """
+    Return a greeting.
+
+    Args:
+        name (str): Person's name.
+
+    Returns:
+        str: Greeting.
+    """
+    return f"Hello, {name}!"
+
+@tool
+def summarize_with_ollama(text: str) -> str:
+    """
+    Summarize text using a dedicated Ollama instance (e.g., running mistral).
+
+    Args:
+        text (str): Input text.
+
+    Returns:
+        str: Summary.
+    """
+    response = requests.post(
+        "http://localhost:11435/api/generate",  # Assuming second Ollama on port 11435
+        json={
+            "model": "mistral",
+            "prompt": f"Summarize the following text:\n\n{text}",
+            "stream": False
+        }
+    )
+    data = response.json()
+    return data.get("response", "[No response from model]")
+
+# ---- Main Agent Configuration ----
+
+agent = CodeAgent(
+    tools=[add, greet, summarize_with_ollama],
+    model=LiteLLMModel(
+        model_id="ollama/qwen2.5-coder:14b",
+        api_base="http://localhost:11434"
+    ),
+    add_base_tools=True,
+    stream_outputs=True,
+    verbosity_level=2
+)
+
+# ---- Run Task ----
+text = (
+    "SmolAgents is a lightweight multi-agent framework created by Hugging Face. "
+    "It's ideal for building agents with reasoning capabilities, function calling, and minimal dependencies."
+)
+
+result = agent.run(f"Summarize this using the summarization tool: {text}")
+print("Result:\n", result)
