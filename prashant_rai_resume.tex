@@ -1,0 +1,147 @@
+\documentclass[10pt, letterpaper]{article}
+
+% ---------- Packages ----------
+\usepackage[top=0.55in, bottom=0.55in, left=0.65in, right=0.65in]{geometry}
+\usepackage{fontenc}
+\usepackage{inputenc}
+\usepackage{enumitem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{mdframed}
+\usepackage{tikz}
+
+% ---------- Accent Color ----------
+% Slate blue — professional, modern, subtle
+\definecolor{accent}{RGB}{42, 82, 138}
+\definecolor{accentlight}{RGB}{235, 240, 250}
+\definecolor{rulecolor}{RGB}{42, 82, 138}
+\definecolor{subtext}{RGB}{90, 90, 90}
+\definecolor{linkcolor}{RGB}{42, 82, 138}
+
+\hypersetup{colorlinks=true, urlcolor=linkcolor, linkcolor=linkcolor}
+\pagestyle{empty}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+
+% ---------- Section Formatting ----------
+% Bold uppercase label with left color bar
+\titleformat{\section}
+  {\normalfont\small\bfseries\color{accent}}
+  {}{0em}{\MakeUppercase}
+  [\vspace{-5pt}\textcolor{accent}{\rule{\linewidth}{0.8pt}}\vspace{2pt}]
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+
+% ---------- List Settings ----------
+\setlist[itemize]{
+  leftmargin=1.2em,
+  itemsep=3.5pt,
+  parsep=0pt,
+  topsep=5pt,
+  label={\textcolor{accent}{\textbullet}}
+}
+
+% ---------- Custom Commands ----------
+\newcommand{\jobtitle}[1]{\textbf{#1}}
+\newcommand{\employer}[1]{\textcolor{subtext}{#1}}
+\newcommand{\daterange}[1]{\textbf{\textcolor{accent}{#1}}}
+\newcommand{\techtags}[1]{\textit{\small\textcolor{subtext}{#1}}}
+
+\begin{document}
+\setlength{\baselineskip}{13pt}
+
+% ================================================================
+% HEADER
+% ================================================================
+\begin{center}
+  {\LARGE\bfseries\color{accent} PRASHANT RAI}\\[4pt]
+  {\small\color{subtext}
+    +1(925)~724-6102
+    \enspace\textcolor{accent}{|}\enspace
+    \href{mailto:prashantrai.241@gmail.com}{prashantrai.241@gmail.com}
+    \enspace\textcolor{accent}{|}\enspace
+    \href{https://www.linkedin.com/in/pmrai}{linkedin.com/in/pmrai}
+    \enspace\textcolor{accent}{|}\enspace
+    \href{https://pmrai.github.io/}{pmrai.github.io}
+  }
+\end{center}
+
+\vspace{3pt}
+% Thin accent rule under header
+\textcolor{accent}{\rule{\linewidth}{1.2pt}}
+
+% ================================================================
+% SUMMARY
+% ================================================================
+\noindent
+{\small Principal-level data scientist with \textbf{10+ years} building end-to-end ML systems at the intersection of \textbf{applied mathematics, reliability engineering, and industrial AI}. Proven track record of \textbf{owning product strategy}, leading cross-functional teams, and shipping patent-protected solutions that drive measurable operational impact at scale. Deep expertise in \textbf{time-series modeling, anomaly detection, physics-informed ML, and generative AI} applied to complex real-world industrial systems.}
+
+\vspace{4pt}
+\begin{itemize}\small
+  \item \textbf{Technical Leadership:} Architected core ML frameworks adopted across product lines; mentored engineers and scientists on 7+ person teams from ideation through production deployment.
+  \item \textbf{Product \& Patents:} Conceived and launched 2 patent-protected digital products for industrial IoT — owning full lifecycle from design to customer impact.
+  \item \textbf{Research-to-Production:} Translated cutting-edge stochastic and deep learning research into scalable systems, publishing 9 peer-reviewed papers and delivering 10+ conference talks.
+\end{itemize}
+
+% ================================================================
+% EXPERIENCE
+% ================================================================
+\section{Experience}
+
+% --- Baker Hughes ---
+\noindent\begin{tabularx}{\linewidth}{@{}X r@{}}
+  \jobtitle{Sr.\ Staff Data Scientist, Applied AI} \employer{-- Baker Hughes, San Jose, CA} & \daterange{Aug 2023 -- Present} \\[-1pt]
+  \jobtitle{Staff Data Scientist} \employer{-- BHC3 (Baker Hughes \& C3.ai), San Jose, CA} & \daterange{Aug 2022 -- July 2023}
+\end{tabularx}
+\techtags{Asset Health · Anomaly Detection · Process Optimization · Gen AI (RAG, Agents) · Industrial IoT}
+\begin{itemize}\small
+  \item \textbf{Architected and shipped 2 patent-protected digital products} for reliability \& process optimization on Industrial IoT data — leading a team of 7+ engineers and data scientists from design through production.
+  \item \textbf{Drove 7--20\% accuracy gains} on high-growth Process Optimization product by building core DS modules from the ground up; served as \textbf{product owner} for OEE solution at a \$1B+ revenue manufacturing facility.
+  \item Designed strategy optimizer integrating failure distribution modeling with \textbf{systems-level asset strategy}, deployed across industrial operations globally.
+\end{itemize}
+
+\vspace{9pt}
+% --- Albertsons ---
+\noindent\begin{tabularx}{\linewidth}{@{}X r@{}}
+  \jobtitle{Lead Data Scientist} \employer{-- Albertsons Companies, Pleasanton, CA} & \daterange{Nov 2021 -- Aug 2022}
+\end{tabularx}
+\techtags{Databricks · Snowflake · SQL · Python · Pricing · Streamlit}
+\begin{itemize}\small
+  \item \textbf{Built and deployed first-ever ML inventory alert system} and competitor price anomaly detector across \textbf{2,300+ stores}, generating real-time pricing recommendations and reducing stock-out risk at scale.
+\end{itemize}
+
+\vspace{9pt}
+% --- Caterpillar ---
+\noindent\begin{tabularx}{\linewidth}{@{}X r@{}}
+  \jobtitle{Senior Data Scientist} \employer{-- Caterpillar Inc (Machine Data Insights), Champaign, IL} & \daterange{June 2020 -- Nov 2021}
+\end{tabularx}
+\techtags{Deep Learning · Time Series · Outlier Detection · Segmentation · AWS}
+\begin{itemize}\small
+  \item \textbf{Led development of multi-class Deep Learning segmentation model} on telematics data from \textbf{50,000+ hydraulic excavators} — outputs used for parts demand forecasting and mechanical design improvements.
+  \item \textbf{Invented and patented PCA-based outlier detection} system for machine misapplication, reducing warranty costs by \textbf{thousands of dollars per machine}.
+\end{itemize}
+
+\vspace{9pt}
+% --- Sandia ---
+\noindent\begin{tabularx}{\linewidth}{@{}X r@{}}
+  \jobtitle{Data Science Postdoctoral Associate} \employer{-- Sandia National Laboratories, Livermore, CA} & \daterange{Mar 2015 -- June 2020}
+\end{tabularx}
+\techtags{Stochastic Modeling · Tensor Decompositions · Matlab · Python · C++}
+\begin{itemize}\small
+  \item Core developer of tensor decomposition algorithms reducing high-dimensional sampling cost by \textbf{up to 100×}; applied to quantum physics, bioenergy, and visualization. Published \textbf{9 papers}, contributed to \href{https://www.sandia.gov/uqtoolkit/}{UQTk}, presented at \textbf{10+ scientific ML conferences}.
+\end{itemize}
+
+% ================================================================
+% EDUCATION
+% ================================================================
+\section{Education}
+
+\noindent\begin{tabularx}{\linewidth}{@{}X r@{}}
+  \textbf{PhD} -- Applied Mathematics & \textcolor{subtext}{Ecole Centrale Nantes, France \enspace (2011--2014)} \\[2pt]
+  \textbf{MS} -- Computational Mechanics & \textcolor{subtext}{Ecole Centrale Nantes, France \enspace (2009--2011)} \\[2pt]
+  \textbf{BS} -- Mechanical Engineering & \textcolor{subtext}{Mumbai University, India \enspace (2001--2005)} \\
+\end{tabularx}
+
+\end{document}
